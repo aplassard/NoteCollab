@@ -8,3 +8,5 @@ class professor(models.Model):
 	lastname = models.CharField(max_length=20)
 	department = models.ForeignKey(department,null=True)
 
+	def __unicode__(self):
+		return firstname+' '+lastname

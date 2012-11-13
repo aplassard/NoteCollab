@@ -12,3 +12,6 @@ class student(models.Model):
     ('GR', 'Graduate'),
 )
 	grade = models.CharField(max_length=10,choices=GRADES)
+
+	def __unicode__(self):
+		return self.firstname+' '+self.lastname
