@@ -1,4 +1,5 @@
 from student.models import student
+from django.template import Context, loader
 
 def students(request):
 	students = student.objects.all()
