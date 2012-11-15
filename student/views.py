@@ -30,7 +30,7 @@ def submit(request,pk):
 	if a:
 		p.grade=a
 	a.save()
-	return render_to_response('student/submitted.html',c)
+	return render('student/submitted.html')
 #	return HttpResponseRedirect(
 #	reverse('student.views.submitted',args=(a.id,))
 #	)
