@@ -2,4 +2,9 @@
 {% for student in s %}
 	<li><a href="/student/{{ student.id }}/">{{ student.firstname }} {{ student.lastname }}</a></li>
 {% endfor %}
+<br>
 </ul>
+
+<form action="/student/new/" method="get">
+	<input type="submit" value="new student" name="new" />
+</form>
