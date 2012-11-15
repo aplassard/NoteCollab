@@ -13,8 +13,7 @@ def students(request):
 def info(request, pk):
 	s = student.objects.get(id=pk)
 	C = Context({'student':s})
-	t=loader.get_template('student/student.html')
-	return HttpResponse(t.render(C))
+	return render_to_response('student/student.html',C,context_instance=RequestContext(request))
 
 def submit(request,pk):
 	c = {}
