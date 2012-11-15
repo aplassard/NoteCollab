@@ -2,6 +2,7 @@ from student.models import student
 from django.template import Context, loader, RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
+from django.core.urlresolvers import reverse
 
 
 def students(request):
@@ -16,9 +17,7 @@ def info(request, pk):
 	return HttpResponse(t.render(C))
 
 def submit(request,pk):
-	p = student.objects.get(id=pk)
-	c = {}
-	c.update(csrf(request))
+	p = get_object_or_404(student, id=pk)
 	a=request.POST.get('firstname',False)
 	if a:
 		p.firstname=a
@@ -29,4 +28,9 @@ def submit(request,pk):
 	if a:
 		p.grade=a
 	a.save()
-	return render_to_response('student/submitted.html',{'student': a, 'form': c['UploadFileForm'],})
+	return HttpResponseRedirect(
+		reverse('student.views.submitted',args=(a.id,))
+	)
+
+def submitted(request,pk):
+	return render_to_response('student/submitted.html',{})
