@@ -1,8 +1,8 @@
 from django.db import models
 
 class student(models.Model):
-	firstname = models.CharField(max_length=25)
-	lastname = models.CharField(max_length=25)
+	firstname = models.CharField(max_length=25,null=True)
+	lastname = models.CharField(max_length=25,null=True)
 	
 	GRADES=(
     ('FR', 'Freshman'),
@@ -11,7 +11,7 @@ class student(models.Model):
     ('SR', 'Senior'),
     ('GR', 'Graduate'),
 )
-	grade = models.CharField(max_length=10,choices=GRADES)
+	grade = models.CharField(max_length=10,choices=GRADES,null=True)
 
 	def __unicode__(self):
 		return self.firstname+' '+self.lastname
