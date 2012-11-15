@@ -28,7 +28,8 @@ def submit(request,pk):
 	if a:
 		p.grade=a
 	a.save()
-	return HttpResponseRedirect(
+	return render_to_response('student/submitted.html',RequestContext(request))
+#	return HttpResponseRedirect(
 		reverse('student.views.submitted',args=(a.id,))
 	)
 
