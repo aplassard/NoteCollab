@@ -16,7 +16,7 @@ def info(request, pk):
 	return HttpResponse(t.render(C))
 
 def submit(request,pk):
-	p = get_object_or_404(student, id=pk)
+	p = student.objects.get(id=pk)
 	c = {}
 	c.update(csrf(request))
 	a=request.POST.get('firstname',False)
