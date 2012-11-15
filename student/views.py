@@ -40,5 +40,8 @@ def submitted(request,pk):
 
 def new(request):
 	s=student()
+	s.firstname=""
+	s.lastname=""
+	s.grade=""
 	s.save()
 	return redirect("/student/%s/" % s.id)

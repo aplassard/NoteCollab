@@ -5,11 +5,12 @@ class student(models.Model):
 	lastname = models.CharField(max_length=25,null=True,blank=True)
 	
 	GRADES=(
-    ('FR', 'Freshman'),
-    ('SO', 'Sophomore'),
-    ('JR', 'Junior'),
-    ('SR', 'Senior'),
-    ('GR', 'Graduate'),
+	('','')
+	('FR', 'Freshman'),
+	('SO', 'Sophomore'),
+	('JR', 'Junior'),
+	('SR', 'Senior'),
+	('GR', 'Graduate'),
 )
 	grade = models.CharField(max_length=10,choices=GRADES,null=True,blank=True)
 
