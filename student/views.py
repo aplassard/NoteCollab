@@ -27,4 +27,4 @@ def submit(request,pk):
 	if a:
 		p.grade=a
 	a.save()
-	return render_toresponse('student/submitted.html',{'student': a}, context_instance=RequestContext(request) )
+	return render_to_response('student/submitted.html',{'student': a}, context_instance=RequestContext(request) )
