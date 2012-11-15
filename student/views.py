@@ -17,6 +17,8 @@ def info(request, pk):
 
 def submit(request,pk):
 	p = get_object_or_404(student, id=pk)
+	c = {}
+	c.update(csrf(request))
 	a=request.POST.get('firstname',False)
 	if a:
 		p.firstname=a
@@ -27,4 +29,4 @@ def submit(request,pk):
 	if a:
 		p.grade=a
 	a.save()
-	return render_to_response('student/submitted.html',{'student': a}, context_instance=RequestContext(request) )
+	return render_to_response('student/submitted.html',{'student': a, 'form': c['UploadFileForm'],})
