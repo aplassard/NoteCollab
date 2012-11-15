@@ -4,9 +4,7 @@
 	<li><a href="/student/{{ student.id }}/">{{ student.firstname }} {{ student.lastname }}</a></li>
 	{% endif %}
 {% endfor %}
-<br>
 </ul>
-
 <form action="/student/new/" method="get">
 	{% csrf_token %}
 	<input type="submit" value="new student" name="new" />
