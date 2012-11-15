@@ -1,4 +1,5 @@
 <form action="/student/{{student.id}}/submit/" method="POST">
+	{% csrf_token %}
 First Name: <input type="text" value="{% if student.firstname %}{{ student.firstname }}{% endif %}" name="firstname"><br>
 Last Name: <input type="text" value="{% if student.lastname %}{{ student.lastname }}{% endif %}" name="lastname"><br>
 Grade: <select name="grade">

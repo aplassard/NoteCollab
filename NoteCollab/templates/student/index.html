@@ -6,5 +6,6 @@
 </ul>
 
 <form action="/student/new/" method="get">
+	{% csrf_token %}
 	<input type="submit" value="new student" name="new" />
 </form>

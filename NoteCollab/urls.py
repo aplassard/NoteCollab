@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'views.home', name='home'),
+    url(r'^$', 'NoteCollab.views.home', name='home'),
     # url(r'^NoteCollab/', include('NoteCollab.foo.urls')),
 	url(r'^student/$', 'student.views.students'),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
