@@ -5,7 +5,6 @@ class student(models.Model):
 	lastname = models.CharField(max_length=25,null=True,blank=True)
 	
 	GRADES=(
-	('','')
 	('FR', 'Freshman'),
 	('SO', 'Sophomore'),
 	('JR', 'Junior'),
