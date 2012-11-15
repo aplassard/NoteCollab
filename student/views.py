@@ -1,7 +1,7 @@
 from student.models import student
 from django.template import Context, loader, RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render_to_response
+from django.shortcuts import get_object_or_404, render_to_response, redirect
 from django.core.urlresolvers import reverse
 from django.core.context_processors import csrf
 
