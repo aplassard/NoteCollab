@@ -12,4 +12,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^student/(?P<pk>\d+)/$','student.views.info'),
     url(r'^student/(?P<pk>\d+)/submit/$','student.views.submit'),
+    url(r'^student/new/$','student.views.new'),
 )
