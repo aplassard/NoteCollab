@@ -30,8 +30,8 @@ def submit(request,pk):
 	a.save()
 	return render_to_response('student/submitted.html',RequestContext(request))
 #	return HttpResponseRedirect(
-	reverse('student.views.submitted',args=(a.id,))
-	)
+#	reverse('student.views.submitted',args=(a.id,))
+#	)
 
 def submitted(request,pk):
 	return render_to_response('student/submitted.html',RequestContext(request))
