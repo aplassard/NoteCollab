@@ -1,6 +1,8 @@
 from student.models import student
-from django.template import Context, loader
-from django.http import HttpResponse
+from django.template import Context, loader, RequestContext
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render_to_response
+
 
 def students(request):
 	students = student.objects.all()
@@ -13,3 +15,16 @@ def info(request, pk):
 	t=loader.get_template('student/student.html')
 	return HttpResponse(t.render(C))
 
+def submit(request,pk):
+	p = get_object_or_404(student, id=pk)
+	a=request.POST.get('firstname',False)
+	if a:
+		p.firstname=a
+	a=request.POST.get('lastname',False)
+	if a:
+		p.lastname=a
+	a=request.POST.get('grade',False)
+	if a:
+		p.grade=a
+	a.save()
+	return render_toresponse('student/submitted.html',{'student': a}, context_instance=RequestContext(request) )
