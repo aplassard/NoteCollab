@@ -1,6 +1,6 @@
 <ul>
 {% for student in s %}
-	{% if student.name != "" %}
+	{% if student.firstname != "" %}
 	<li><a href="/student/{{ student.id }}/">{{ student.firstname }} {{ student.lastname }}</a></li>
 	{% endif %}
 {% endfor %}
