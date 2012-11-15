@@ -29,7 +29,7 @@ def submit(request,pk):
 	a=request.POST.get('grade',False)
 	if a:
 		p.grade=a
-	a.save()
+	p.save()
 	return HttpResponseRedirect(
 	reverse('student.views.submitted',args=(a.id,))
 	)
