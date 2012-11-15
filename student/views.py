@@ -37,3 +37,8 @@ def submit(request,pk):
 
 def submitted(request,pk):
 	return render_to_response('student/submitted.html',{},context_instance=RequestContext(request))
+
+def new(request):
+	s=student()
+	s.save()
+	return redirect("/student/%s/" % s.id)
