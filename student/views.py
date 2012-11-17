@@ -46,5 +46,9 @@ def new(request):
 def delete(request):
 	c = {}
 	c.update(csrf(request))
-	return render_to_response('student/deleted.html',c, context_instance=RequestContext(request))
+	o=""
+	for key in request.POST.keys():
+		o+=key+'\t'+request.POST[key]+"<br>"
+	return HttpResponse(o)
+#	return render_to_response('student/deleted.html',c, context_instance=RequestContext(request))
 
