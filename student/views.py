@@ -41,5 +41,7 @@ def new(request):
 	return redirect("/student/%s/" % s.id)
 
 def delete(request):
-	return render_to_response('student/deleted.html',{}, context_instance= RequestContext(request))
+	c = {}
+	c.update(csrf(request))
+	return render_to_response('student/deleted.html',c, context_instance= RequestContext(request))
 
