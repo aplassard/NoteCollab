@@ -46,12 +46,12 @@ def new(request):
 def delete(request):
 	c = {}
 	c.update(csrf(request))
-	s=[]
+	o=[]
 	a=request.POST.getlist('student',False)
 	if a:
 		for s in a:
 			p=get_object_or_404(student,id=s)
-			s.append(p.id)
+			o.append(p.id)
 			p.delete()
-	c['s']=s
+	c['s']=o
 	return render_to_response(student/deleted.html,c)
