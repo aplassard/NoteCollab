@@ -44,6 +44,8 @@ def new(request):
 	return redirect("/student/%s/" % s.id)
 
 def delete(request):
+	c = {}
+	c.update(csrf(request))
 	o=""
 	for key in request.GET.keys():
 		o+=key+'\t'+request.GET[key]+"<br>"
