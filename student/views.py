@@ -43,8 +43,12 @@ def new(request):
 	s.save()
 	return redirect("/student/%s/" % s.id)
 
-def delete(request,pk):
-	a=get_object_or_404(student, id=pk)
-	n=a.firstname+' '+a.lastname
-	a.delete()
-	return render_to_response('student/deleted.html',{'name':n})
+def delete(request):
+	o=""
+	for key in request.GET.keys():
+		o+=key+'\t'+request.GET[key]+"<br>"
+	return HttpResponse(o)
+#	a=get_object_or_404(student, id=pk)
+#	n=a.firstname+' '+a.lastname
+#	a.delete()
+#	return render_to_response('student/deleted.html',{'name':n})
