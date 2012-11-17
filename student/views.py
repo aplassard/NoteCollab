@@ -43,5 +43,15 @@ def new(request):
 def delete(request):
 	c = {}
 	c.update(csrf(request))
+	p = get_object_or_404(student, id=1)
+	a=request.POST.get('firstname',False)
+	if a:
+		p.firstname=a
+	a=request.POST.get('lastname',False)
+	if a:
+		p.lastname=a
+	a=request.POST.get('grade',False)
+	if a:
+		p.grade=a
 	return render_to_response('student/deleted.html',c, context_instance= RequestContext(request))
 
