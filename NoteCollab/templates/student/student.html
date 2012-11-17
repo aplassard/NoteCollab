@@ -9,5 +9,6 @@ Grade: <select name="grade">
 		<option {% if student.grade == "Junior" %}selected="selected"{% endif %} value="Junior">Junior</option>
 		<option {% if student.grade == "Senior" %}selected="selected"{% endif %} value="Senior">Senior</option>
 		<option value="Graduate">Graduate</option>
-<input type="submit" value="Save Info" />
+<input type="submit" value="Save Info" /><br>
+<input type="submit" value="Delete Selected" name="delete" />
 </form>
