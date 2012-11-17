@@ -46,7 +46,7 @@ def new(request):
 def delete(request):
 	c = {}
 	c.update(csrf(request))
-	o=[]
+	s=[]
 	a=request.POST.getlist('student',False)
 	if a:
 		for s in a:
