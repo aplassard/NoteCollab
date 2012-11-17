@@ -9,7 +9,11 @@ from django.core.context_processors import csrf
 def students(request):
 	students = student.objects.all()
 	t=loader.get_template('student/index.html')
-	return HttpResponse(t.render(Context({'s':students})))
+	c={}
+	c.update(csrf(request))
+	c['s']:students
+	return render_to_response('student/index.html',c)
+#	return HttpResponse(t.render(Context({'s':students})))
 
 def info(request, pk):
 	s = student.objects.get(id=pk)
@@ -43,15 +47,5 @@ def new(request):
 def delete(request):
 	c = {}
 	c.update(csrf(request))
-	p = get_object_or_404(student, id=1)
-	a=request.POST.get('firstname',False)
-	if a:
-		p.firstname=a
-	a=request.POST.get('lastname',False)
-	if a:
-		p.lastname=a
-	a=request.POST.get('grade',False)
-	if a:
-		p.grade=a
-	return render_to_response('student/deleted.html',c, context_instance= RequestContext(request))
+	return render_to_response('student/deleted.html',c, context_instance=RequestContext(request))
 
