@@ -54,4 +54,4 @@ def delete(request):
 			o.append(p.id)
 			p.delete()
 	c['s']=o
-	return render_to_response(student/deleted.html,c)
+	return render_to_response('student/deleted.html',c)
