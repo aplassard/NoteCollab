@@ -43,9 +43,9 @@ def new(request):
 def delete(request):
 	c = {}
 	c.update(csrf(request))
-	o=""
-	for key in request.GET.keys():
-		o+=key+'\t'+request.GET[key]+"<br>"
+#	o=""
+#	for key in request.GET.keys():
+#		o+=key+'\t'+request.GET[key]+"<br>"
 	return render_to_response('student/deleted.html',{})
 #	a=get_object_or_404(student, id=pk)
 #	n=a.firstname+' '+a.lastname
