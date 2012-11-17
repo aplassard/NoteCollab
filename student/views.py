@@ -47,7 +47,7 @@ def delete(request):
 	c = {}
 	c.update(csrf(request))
 	o=""
-	a=request.POST.get('student',False)
+	a=request.POST.getlist('student',False)
 	if a:
 		for student in a:
 			o+='student'+'\t'+str(student)+'<br>'
