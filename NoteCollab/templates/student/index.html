@@ -1,6 +1,7 @@
 <form action="/student/delete/" method="post">
 <ul>
 {% for student in s %}
+	{% csrf_token %}
 	{% if student.firstname != "" %}
 	<li><a href="/student/{{ student.id }}/">{{ student.firstname }} {{ student.lastname }}</a> <input type="checkbox" name="student" value="{{ student.id }}" /></li>
 	{% endif %}
