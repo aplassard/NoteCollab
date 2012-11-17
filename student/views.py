@@ -46,7 +46,10 @@ def delete(request):
 	o=""
 	for key in request.POST.keys():
 		o+=key+'\t'+request.GET[key]+"<br>"
-	return render_to_response('student/deleted.html',RequestContext(request, {}))
+	if request.method=="POST":
+		return render_to_response('student/deleted.html',RequestContext(request, {}))
+	else:
+		return HttpResponse(o)
 #	a=get_object_or_404(student, id=pk)
 #	n=a.firstname+' '+a.lastname
 #	a.delete()
