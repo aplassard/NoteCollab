@@ -4,10 +4,10 @@ First Name: <input type="text" value="{% if student.firstname %}{{ student.first
 Last Name: <input type="text" value="{% if student.lastname %}{{ student.lastname }}{% endif %}" name="lastname"><br>
 Grade: <select name="grade">
 		<option value=""></option>
-		<option {% if student.grade="Freshman" %}selected="selected"{% endif %} value="Freshman">Freshman</option>
-		<option {% if student.grade="Sophomore" %}selected="selected"{% endif %} value="Sophomore">Sophomore</option>
-		<option {% if student.grade="Junior" %}selected="selected"{% endif %} value="Junior">Junior</option>
-		<option {% if student.grade="Senior" %}selected="selected"{% endif %} value="Senior">Senior</option>
+		<option {% if student.grade=="Freshman" %}selected="selected"{% endif %} value="Freshman">Freshman</option>
+		<option {% if student.grade=="Sophomore" %}selected="selected"{% endif %} value="Sophomore">Sophomore</option>
+		<option {% if student.grade=="Junior" %}selected="selected"{% endif %} value="Junior">Junior</option>
+		<option {% if student.grade=="Senior" %}selected="selected"{% endif %} value="Senior">Senior</option>
 		<option value="Graduate">Graduate</option>
 <input type="submit" value="Save Info" />
 </form>
