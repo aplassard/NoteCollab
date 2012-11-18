@@ -48,6 +48,7 @@ def delete(request):
 	c.update(csrf(request))
 	o=[]
 	a=request.POST.getlist('student',False)
+	'''
 	if a:
 		if len(a)>0:
 			for s in a:
@@ -56,5 +57,9 @@ def delete(request):
 				p.delete()
 	else:
 		return redirect("/student/")
+	'''
+	o=""
+	for key in request.POST.keys():
+		o+=key+"\t"+request.POST[key]+"<br>"
 	c['s']=o
 	return render_to_response('student/deleted.html',c)
