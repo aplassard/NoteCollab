@@ -48,9 +48,9 @@ def delete(request):
 	c.update(csrf(request))
 	o=[]
 	a=request.POST.getlist('student',False)
+	if 'new' in request.POST:
+		return redirect("/student/new/")
 	if a:
-		if 'new student' in a:
-			return redirect("/student/new/")
 		if len(a)>0:
 			for s in a:
 				p=get_object_or_404(student,id=s)
