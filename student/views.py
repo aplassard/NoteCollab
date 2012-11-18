@@ -49,9 +49,12 @@ def delete(request):
 	o=[]
 	a=request.POST.getlist('student',False)
 	if a:
-		for s in a:
-			p=get_object_or_404(student,id=s)
-			o.append(p.id)
-			p.delete()
+		if len(a)>0:
+			for s in a:
+				p=get_object_or_404(student,id=s)
+				o.append(p.id)
+				p.delete()
+		else:
+			return redirect("/student/")
 	c['s']=o
 	return render_to_response('student/deleted.html',c)
