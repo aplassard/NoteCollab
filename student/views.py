@@ -49,7 +49,7 @@ def delete(request):
 	o=[]
 	a=request.POST.getlist('student',False)
 	if a:
-		if 'new' in a:
+		if 'new student' in a:
 			return redirect("/student/new/")
 		if len(a)>0:
 			for s in a:
