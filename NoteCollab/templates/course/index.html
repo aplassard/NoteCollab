@@ -2,7 +2,7 @@
     {% csrf_token %}
     <ul>
         {% for course in courses %}
-            <li><a href="/course/{{ course.id }}/">{{ course.name }}</a><input type="checkbox" name="student" value="{{ course.id }}" /></li>
+            <li><a href="/course/{{ course.id }}/">{{ course.name }}</a><input type="checkbox" name="course" value="{{ course.id }}" /></li>
         {% endfor %}
         
     </ul>
