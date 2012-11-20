@@ -1,10 +1,5 @@
 from django.db import models
-
-class department(models.Model):
-	name = models.CharField(max_length=20)
-	
-	def __unicode__(self):
-		return name
+from department.models import department
 
 class professor(models.Model):
 	firstname = models.CharField(max_length=20)
@@ -12,4 +7,4 @@ class professor(models.Model):
 	department = models.ForeignKey(department,null=True)
 
 	def __unicode__(self):
-		return firstname+' '+lastname
+		return self.firstname+' '+self.lastname
