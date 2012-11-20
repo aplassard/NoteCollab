@@ -48,7 +48,7 @@ def info(request,pk):
     c.update(csrf(request))
     c['course']=a
     if a.professor:
-        p=professor.objects.get(id=a.professor)
+        p=a.professor
         c['professor']=p
     else:
         c['professor']=False
