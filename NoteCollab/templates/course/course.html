@@ -6,7 +6,7 @@
         <option value="" />
         {% for p in professors %}
             {% if p.firstname != "" or p.lastname != ""%}
-                <option value="{{p.id}}" {% if professor and p.firstname==professor.firstname and p.lastname==professor.lastname%}selected="selected"{% endif %}>
+                <option value="{{p.id}}" {% if professor and p.firstname == professor.firstname and p.lastname == professor.lastname%}selected="selected"{% endif %}>
                     {%if p.firstname !="" %}
                         {{p.firstname}}
                         {% if p.lastname !="" %}
