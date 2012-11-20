@@ -78,7 +78,7 @@ def submitinfo(request,pk):
     if a:
         p.professor=professor.objects.get(id=int(a))
     inids=request.POST.getlist('students',False)
-    if a:
+    if inids:
         listids=[]
         b=p.students.all()
         for s in b:
