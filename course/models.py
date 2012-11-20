@@ -1,5 +1,5 @@
 from django.db import models
-from professor.models import professor,department
+from professor.models import professor
 from student.models import student
 
 class course(models.Model):
