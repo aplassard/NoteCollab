@@ -3,7 +3,7 @@ from professor.models import professor
 from student.models import student
 
 class course(models.Model):
-	professor = models.ForeignKey(professor)
+	professor = models.ForeignKey(professor,null=True)
 	students = models.ManyToManyField(student)
 	name = models.CharField(max_length=50)
 	description = models.CharField(max_length=1000, null=True)
