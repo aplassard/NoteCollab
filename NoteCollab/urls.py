@@ -17,5 +17,6 @@ urlpatterns = patterns('',
     url(r'^professor/new/$','professor.views.new'),
     url(r'^professor/(?P<pk>\d+)/$','professor.views.info'),
     url(r'^professor/submit','professor.views.submit'),
-    url(r'^professor/(?P<pk>\d+)/submit/$','professor.views.submitinfo')
+    url(r'^professor/(?P<pk>\d+)/submit/$','professor.views.submitinfo'),
+    url(r'^course/','course.views.index')
 )
