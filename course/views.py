@@ -88,6 +88,6 @@ def submitinfo(request,pk):
                 p.students.add(student.objects.get(id=s))
         for s in b:
             if s not in a:
-                p.students.remove(student.objects.get(id=s))
+                p.students.remove(s)
     p.save()
     return render_to_response('course/submitted.html',c)
