@@ -1,0 +1,7 @@
+<form action="/professor/{{professor.id}}/submit/" method="post">
+    {% csrf_token %}
+    First Name: <input type="text" value="{{professor.firstname}}" name="firstname"><br>
+    Last Name: <input type="text" value="{{professor.lastname}}" name="lastname"><br>
+    Department (optional): <input type="text" value="{{professor.department}}" name="department"><br>
+    <input type="submit" value="Save Info" />
+</form>

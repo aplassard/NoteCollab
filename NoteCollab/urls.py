@@ -14,4 +14,6 @@ urlpatterns = patterns('',
     url(r'^student/new/$','student.views.new'),
     url(r'^student/delete/$','student.views.delete'),
     url(r'^professor/$','professor.views.index'),
+    url(r'^professor/new/$','professor.views.new'),
+    url(r'^professor/(?P<pk>\d+)/$','professor.views.info')
 )
