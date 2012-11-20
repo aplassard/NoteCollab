@@ -5,10 +5,10 @@
             <td>Name</td>
             <td>Department</td>
         </tr>
-        {% for professor in p %}
+        {% for prof in p %}
             <tr>
-                <td>{% if professor.firstname %}{{ professor.firstname }}{% if professor.lastname %} {% endif %}{% endif %}{% if professor.lastname %}{{ professor.lastname }}{% endif %}</td>
-                <td>{% if professor.department %}{{ professor.department }}{% endif %}</td>
+                <td>{% if prof.firstname %}{{ prof.firstname }}{% if prof.lastname %} {% endif %}{% endif %}{% if prof.lastname %}{{ prof.lastname }}{% endif %}</td>
+                <td>{% if prof.department %}{{ prof.department }}{% endif %}</td>
             </tr>
         {% endfor %}
     </table>
