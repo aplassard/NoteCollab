@@ -80,5 +80,14 @@ def submitinfo(request,pk):
     a=request.POST.get('professor',False)
     if a:
         p.professor=professor.objects.get(id=int(a))
+    a=request.POST.getlist('students',False)
+    if a:
+        ids=[]
+        b=p.students.all()
+        for s in b:
+            ids.append(s.id)
+        for s in a:
+            if s not in b:
+                p.students.add(student.objects.get(id=s))
     p.save()
     return render_to_response('course/submitted.html',c)
