@@ -1,0 +1,16 @@
+<form action="/professor/submit/" method="post">
+    {% csrf_token %}
+    <table border="1">
+        <tr>
+            <td>Name</td>
+            <td>Department</td>
+        </tr>
+        {% for professor in p %}
+            <tr>
+                <td>{% if professor.firstname %}{{ professor.firstname }}{% if professor.lastname %} {% endif %}{% endif %}{% if professor.lastname %}{{ professor.lastname }}{% endif %}</td>
+                <td>{% if professor.department %}{{ professor.department }}{% endif %}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <input type="submit" value="new professor" name="new" />
+</form>
