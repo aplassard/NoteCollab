@@ -9,7 +9,7 @@
             {% if course.name != "" %}
                 <tr>
                     <td>
-                        {{ course.name }}
+                        <a href="/course/{{course.id}}/">{{ course.name }}</a>
                     </td>
                     <td>
                         {{ course.professor }}
