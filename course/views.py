@@ -70,4 +70,4 @@ def submitinfo(request,pk):
     if a:
         p.professor=professor.objects.get(id=int(a))
     p.save()
-    render_to_response('student/submitted.html',c)
+    return render_to_response('course/submitted.html',c)
