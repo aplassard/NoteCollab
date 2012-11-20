@@ -127,7 +127,6 @@ INSTALLED_APPS = (
 	'student',
 	'professor',
 	'course',
-	'department',
 )
 
 # A sample logging configuration. The only tangible logging
