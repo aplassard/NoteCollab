@@ -5,12 +5,14 @@
             <td>Name</td>
             <td>Department</td>
         </tr>
-        {% for prof in p %}
-            <tr>
-                <td>{% if prof.firstname %}{{ prof.firstname }}{% if prof.lastname %} {% endif %}{% endif %}{% if prof.lastname %}{{ prof.lastname }}{% endif %}</td>
-                <td>{% if prof.department %}{{ prof.department }}{% endif %}</td>
-            </tr>
-        {% endfor %}
+        {% if p %}
+            {% for prof in p %}
+                <tr>
+                    <td>{% if prof.firstname %}{{ prof.firstname }}{% if prof.lastname %} {% endif %}{% endif %}{% if prof.lastname %}{{ prof.lastname }}{% endif %}</td>
+                    <td>{% if prof.department %}{{ prof.department }}{% endif %}</td>
+                </tr>
+            {% endfor %}
+        {% endif%}
     </table>
     <input type="submit" value="new professor" name="new" />
 </form>
