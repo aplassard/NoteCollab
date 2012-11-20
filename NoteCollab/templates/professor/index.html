@@ -8,7 +8,7 @@
         {% if p %}
             {% for prof in p %}
                 <tr>
-                    <td>{% if prof.firstname %}{{ prof.firstname }}{% if prof.lastname %} {% endif %}{% endif %}{% if prof.lastname %}{{ prof.lastname }}{% endif %}</td>
+                    <td><a href="/professor/{{ prof.id }}/">{% if prof.firstname %}{{ prof.firstname }}{% if prof.lastname %} {% endif %}{% endif %}{% if prof.lastname %}{{ prof.lastname }}{% endif %}</a></td>
                     <td>{% if prof.department %}{{ prof.department }}{% endif %}</td>
                 </tr>
             {% endfor %}
