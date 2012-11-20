@@ -7,4 +7,4 @@ class group(models.Model):
     course = models.ForeignKey(course)
     
     def __unicode__(self):
-        return self.course +': '+str(self.id)
+        return str(self.course) +': '+str(self.id)
