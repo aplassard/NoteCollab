@@ -1,6 +1,8 @@
 from professor.models import professor, department
 from django.core.context_processors import csrf
 from django.shortcuts import get_object_or_404, render_to_response, redirect
+from django.template import Context, loader, RequestContext
+
 
 def index(request):
     c={}
