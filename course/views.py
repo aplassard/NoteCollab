@@ -1,5 +1,6 @@
 from professor.models import professor
 from course.models import course
+from student.models import student
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
 from django.shortcuts import get_object_or_404, render_to_response, redirect
