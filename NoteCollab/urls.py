@@ -14,5 +14,6 @@ urlpatterns = patterns('',
     url(r'^student/new/$','student.views.new'),
     url(r'^student/delete/$','student.views.delete'),
     url(r'^course/$', 'course.views.index'),
-    url(r'^course/submit/$','course.views.submit')
+    url(r'^course/submit/$','course.views.submit'),
+    url(r'^course/new/$','course.views.new'),
 )
