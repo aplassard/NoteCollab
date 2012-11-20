@@ -1,11 +1,16 @@
 <form action="/course/submit/" method="POST">
     {% csrf_token %}
-    <ul>
+    <table border="0">
+        <td>Name</td>
+        <td>Professor</td>
         {% for course in courses %}
-            <li><a href="/course/{{ course.id }}/">{{ course.name }}</a><input type="checkbox" name="course" value="{{ course.id }}" /></li>
-        {% endfor %}
-        
-    </ul>
-    <input type="submit" name="delete" value="Delete Selected" />
-    <input type="submit" value="New Course" name="new" />
+            <td>
+                {{ course.name }}
+            </td>
+            <td>
+                {{ course.professor }}
+            </td>
+        {%endfor%}
+    </table>
+    <input type="submit" value="new course" name="new" />
 </form>
