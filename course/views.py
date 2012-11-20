@@ -47,4 +47,11 @@ def info(request,pk):
     c={}
     c.update(csrf(request))
     c['course']=a
+    if a.professor:
+        p=professor.objects.get(id=a.professor)
+        c['professor']=p
+    else:
+        c['professor']=False
+    professors=professor.objects.all()
+    c['professors']=professors
     return render_to_response('course/course.html',c)
