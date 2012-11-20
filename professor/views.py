@@ -6,5 +6,8 @@ def index(request):
     c={}
     c.update(csrf(request))
     professors=professor.objects.all()
-    c['p']=professor
+    if len(professors)>0:
+        c['p']=professor
+    else:
+        c['p']=None
     return render_to_response('professor/index.html',c)
