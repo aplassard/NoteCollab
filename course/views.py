@@ -56,7 +56,8 @@ def info(request,pk):
     professors=professor.objects.all()
     c['professors']=professors
     names=[]
-    for s in a.students:
+    stud=a.students
+    for s in stud:
         names+=s.firstname+' '+s.lastname
     c['classstudents']=names
     c['allstudents']=student.objects.all()
