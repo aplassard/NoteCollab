@@ -26,7 +26,7 @@
     Students:<br>
     <select multiple="multiple" name="students" title="Students">
         {% for s in allstudents %}
-            <option value="{{s.id}}" {% if s in classstudents %}selected="selected"{% endif %} >{{s}}</option>
+            <option value="{{s.id}}" {% if s.id in classstudents %}selected="selected"{% endif %} >{{s.firstname}} {{s.lastname}}</option>
         {%endfor%}
     </select>
     <input type="submit" value="Save Info" />

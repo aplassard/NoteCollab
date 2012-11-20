@@ -58,13 +58,10 @@ def info(request,pk):
     names=[]
     stud=a.students.all()
     for s in stud:
-        names.append(s.firstname+' '+s.lastname)
+        names.append(s.id)
     c['classstudents']=names
     names=[]
-    stud = student.objects.all()
-    for s in stud:
-        names.append(s.firstname+' '+s.lastname)
-    c['allstudents']=names
+    c['allstudents']=student.objects.all()
     return render_to_response('course/course.html',c)
 
 def submitinfo(request,pk):
