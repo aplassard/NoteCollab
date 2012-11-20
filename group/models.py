@@ -1,3 +1,10 @@
 from django.db import models
+from student.models import student
+from course.models import course
 
-# Create your models here.
+class group(models.Model):
+    students = models.ManyToManyField(student)
+    course = models.ForeignKey(course)
+    
+    def __unicode__(self):
+        return self.course +': '+str(self.id)
