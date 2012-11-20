@@ -84,9 +84,9 @@ def submitinfo(request,pk):
         for s in b:
             ids.append(s.id)
         for s in a:
-            if s not in b:
+            if s not in ids:
                 p.students.add(student.objects.get(id=s))
-        for s in b:
+        for s in ids:
             if s not in a:
                 p.students.remove(s)
     p.save()
