@@ -55,3 +55,19 @@ def info(request,pk):
     professors=professor.objects.all()
     c['professors']=professors
     return render_to_response('course/course.html',c)
+
+def submitinfo(request,pk):
+    c = {}
+    c.update(csrf(request))
+    p=get_object_or_404(course,id=pk)
+    a=request.POST.get('name',False)
+    if a:
+        p.name=a
+    a=request.POST.get('description',False)
+    if a:
+        p.description=a
+    a=request.POST.get('professor',False)
+    if a:
+        p.professor=professor.objects.get(id=int(a))
+    p.save()
+    render_to_response('student/submitted.html',c)
