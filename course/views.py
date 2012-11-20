@@ -1,3 +1,4 @@
+from professor.models import professor
 from course.models import course
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
@@ -37,6 +38,7 @@ def new(request):
     a=course()
     a.name=""
     a.description=""
+    a.professor=professor("")
     a.save()
     return redirect("/course/%s/"%a.id)
 
