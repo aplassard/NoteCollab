@@ -47,4 +47,4 @@ def submitinfo(request,pk):
     if a:
         p.department=department(a)
     p.save()
-    return render_to_response('professor/submitted.html'c)
+    return render_to_response('professor/submitted.html',c)
