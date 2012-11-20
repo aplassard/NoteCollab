@@ -18,5 +18,8 @@ urlpatterns = patterns('',
     url(r'^professor/(?P<pk>\d+)/$','professor.views.info'),
     url(r'^professor/submit','professor.views.submit'),
     url(r'^professor/(?P<pk>\d+)/submit/$','professor.views.submitinfo'),
-    url(r'^course/','course.views.index')
+    url(r'^course/$','course.views.index'),
+    url(r'^course/submit/$','course.views.submit'),
+    url(r'^course/new/$','course.views.new'),
+    url(r'^course/(?P<pk>)/$','course.views.info'),
 )

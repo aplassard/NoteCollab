@@ -1,6 +1,6 @@
 <form action="/course/submit/" method="POST">
     {% csrf_token %}
-    <table border="0">
+    <table border="1">
         <td>Name</td>
         <td>Professor</td>
         {% for course in courses %}
