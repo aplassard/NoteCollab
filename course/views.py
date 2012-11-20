@@ -55,7 +55,10 @@ def info(request,pk):
         c['professor']=False
     professors=professor.objects.all()
     c['professors']=professors
-    c['classstudents']=a.students
+    names=[]
+    for s in a.students:
+        names+=s.firstname+' '+s.lastname
+    c['classstudents']=names
     c['allstudents']=student.objects.all()
     return render_to_response('course/course.html',c)
 
