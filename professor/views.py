@@ -1,4 +1,4 @@
-from professor.models import professor
+from professor.models import professor, department
 from django.core.context_processors import csrf
 from django.shortcuts import get_object_or_404, render_to_response, redirect
 
@@ -21,7 +21,7 @@ def new(request):
     p=professor()
     p.firstname=""
     p.lastname=""
-    p.department=""
+    p.department=department("")
     p.save()
     return redirect("/professor/%s/" % p.id)
 
