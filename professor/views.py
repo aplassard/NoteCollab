@@ -1,4 +1,4 @@
-from professor.models import professor, department
+from professor.models import professor
 from django.core.context_processors import csrf
 from django.shortcuts import get_object_or_404, render_to_response, redirect
 from django.template import Context, loader, RequestContext
@@ -23,7 +23,7 @@ def new(request):
     p=professor()
     p.firstname=""
     p.lastname=""
-    p.department=department("")
+    p.department=""
     p.save()
     return redirect("/professor/%s/" % p.id)
 
@@ -45,6 +45,6 @@ def submitinfo(request,pk):
         p.lastname=a
     a=request.POST.get('department',False)
     if a:
-        p.department=department(a)
+        p.department=a
     p.save()
     return render_to_response('professor/submitted.html',c)
