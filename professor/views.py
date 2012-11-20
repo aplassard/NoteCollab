@@ -32,3 +32,19 @@ def info(request,pk):
     c=Context({'professor':p})
     c.update(csrf(request))
     return render_to_response('professor/professor.html',c)
+
+def submitinfo(request,pk):
+    c={}
+    c.update(csrf(request))
+    p = get_object_or_404(professor,id=pk)
+    a=request.POST.get('firstname',False)
+    if a:
+        p.firstname=a
+    a=request.POST.get('lastname',False)
+    if a:
+        p.lastname=a
+    a=request.POST.get('department',False)
+    if a:
+        p.department=department(a)
+    p.save()
+    return render_to_response('professor/submitted.html'c)
