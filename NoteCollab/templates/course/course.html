@@ -24,9 +24,9 @@
     Description:<br>
     <textarea name="description" cols="40" rows="6">{{course.description}}</textarea><br>
     Students:<br>
-    <select multiple="multiple">
+    <select multiple="multiple" name="students" title="Students">
         {% for s in allstudents %}
-            <option value="s.id">{{s.firstname}} {{s.lastname}}</option>
+            <option value="{{s.id}}">{{s.firstname}} {{s.lastname}}</option>
         {%endfor%}
     </select>
     <input type="submit" value="Save Info" />

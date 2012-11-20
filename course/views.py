@@ -56,7 +56,7 @@ def info(request,pk):
     professors=professor.objects.all()
     c['professors']=professors
     c['classstudents']=a.students
-    c['allstudnets']=student.objects.all()
+    c['allstudents']=student.objects.all()
     return render_to_response('course/course.html',c)
 
 def submitinfo(request,pk):
