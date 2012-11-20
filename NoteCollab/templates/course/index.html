@@ -1,15 +1,21 @@
 <form action="/course/submit/" method="POST">
     {% csrf_token %}
     <table border="1">
+        <tr>
         <td>Name</td>
         <td>Professor</td>
+        </tr>
         {% for course in courses %}
-            <td>
-                {{ course.name }}
-            </td>
-            <td>
-                {{ course.professor }}
-            </td>
+            {% if course.name != "" %}
+                <tr>
+                    <td>
+                        {{ course.name }}
+                    </td>
+                    <td>
+                        {{ course.professor }}
+                    </td>
+                </tr>
+            {% endif %}
         {%endfor%}
     </table>
     <input type="submit" value="new course" name="new" />

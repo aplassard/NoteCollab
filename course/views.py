@@ -43,7 +43,7 @@ def new(request):
     return redirect("/course/%s/"%a.id)
 
 def info(request,pk):
-    a=get_object_or_404(course,pk)
+    a=get_object_or_404(course,id=pk)
     c={}
     c.update(csrf(request))
     c['course']=a
