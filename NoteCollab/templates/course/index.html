@@ -4,6 +4,7 @@
         <tr>
         <td>Name</td>
         <td>Professor</td>
+        <td>Notes</td>
         </tr>
         {% for course in courses %}
             {% if course.name != "" %}
@@ -13,6 +14,9 @@
                     </td>
                     <td>
                         {{ course.professor }}
+                    </td>
+                    <td>
+                        <a href="/course/{{course.id}}/notes/">notes</a>
                     </td>
                 </tr>
             {% endif %}

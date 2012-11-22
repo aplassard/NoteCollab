@@ -94,7 +94,7 @@ def submitinfo(request,pk):
     return render_to_response('course/submitted.html',c)
 
 def notes(request,pk):
-    connection = Connection('ds031087.mongolab.com','32087')
+    connection = Connection('ds031087.mongolab.com',31087)
     db = connection['notecollab']
     db.authenticate('andrew','password')
     notes = db['notes']

@@ -1,0 +1,22 @@
+<form action="/course/{{pk}}/notes/submit/" method="POST">
+    {% csrf_token %}
+    <table border="1">
+        <tr>
+        <td>Name</td>
+        <td>Delete</td>
+        </tr>
+        {% for note in notes %}
+            <tr>
+                <td>
+                    <a href="/course/{{pk}}/notes/{{note.id}}/">
+                        note.name
+                    </a>
+                </td>
+                <td>
+                    <input type="checkbox" name="note" value="{{ note.id }}" />
+                </td>
+            </tr>
+        {%endfor%}
+    </table>
+    <input type="submit" value="new note" name="new" />
+</form>
