@@ -4,6 +4,7 @@ from student.models import student
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
 from django.shortcuts import get_object_or_404, render_to_response, redirect
+from pymongo import Connection
 
 def index(request):
     courses = course.objects.all()
@@ -91,3 +92,24 @@ def submitinfo(request,pk):
                 p.students.add(student.objects.get(id=s))
     p.save()
     return render_to_response('course/submitted.html',c)
+
+def notes(request,pk):
+    connection = Connection('ds031087.mongolab.com','32087')
+    db = connection['notecollab']
+    db.authenticate('andrew','password')
+    notes = db['notes']
+    classnotes = notes.find({"class":pk})
+    notelist=[]
+    for n in classnotes:
+        if n.has_key('name') and n.has_key('_id'):
+            notelist.append(note(name=n['name'],num=n['_id']))
+    c={}
+    c.update(csrf(request))
+    c['notes']=notelist
+    c['pk']=pk
+    return render_to_response('course/notes.html',c)
+
+class note(object):
+    def __init__(self,name="",num=None):
+        self.name=name
+        self.num=num
