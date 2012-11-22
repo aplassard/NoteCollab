@@ -1,6 +1,9 @@
 from student.models import student
 from django.template import Context, loader
-from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, render_to_response, redirect
+from django.core.context_processors import csrf
 
 def home(request):
-	return HttpResponse('Welcome Home!')
+	c={}
+	c.update(csr(request))
+	return render_to_response('index.html',c)
