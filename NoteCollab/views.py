@@ -5,5 +5,5 @@ from django.core.context_processors import csrf
 
 def home(request):
 	c={}
-	c.update(csr(request))
+	c.update(csrf(request))
 	return render_to_response('index.html',c)
