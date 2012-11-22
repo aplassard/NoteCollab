@@ -135,7 +135,7 @@ def noteinfo(request,pk,n):
     db = connection['notecollab']
     db.authenticate('andrew','password')
     notes = db['notes']
-    thisnote=notes.find({'course':n,'pid':n})
+    thisnote=notes.find_one({'course':n,'pid':n})
     noteobj=note(name=thisnote['name'],num=thisnote['pid'])
     c={}
     c.update(csrf(request))
