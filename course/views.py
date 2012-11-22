@@ -101,7 +101,7 @@ def notes(request,pk):
     classnotes = notes.find({"class":pk})
     notelist=[]
     for n in classnotes:
-        if n.has_key('name') and n.has_key('_id'):
+        if n.has_key('name') and n.has_key('pid'):
             notelist.append(note(name=n['name'],num=n['_id']))
     c={}
     c.update(csrf(request))
@@ -113,3 +113,31 @@ class note(object):
     def __init__(self,name="",num=None):
         self.name=name
         self.num=num
+        
+def newnote(request,pk):
+    connection = Connection('ds031087.mongolab.com',31087)
+    db = connection['notecollab']
+    db.authenticate('andrew','password')
+    notes = db['notes']
+    try:
+        newestnote = notes.find({'course':pk}).sort("pid")[0]
+        nextval=newestnote["pid"]+1
+    except:
+        nextval=0
+    newobject={
+        'name' : "",
+        'pid' : nexval,
+    }
+    return redirect("/course/"+str(pk)+"/note/"+str(nextval)+"/")
+
+def noteinfo(request,pk,n):
+    connection = Connection('ds031087.mongolab.com',31087)
+    db = connection['notecollab']
+    db.authenticate('andrew','password')
+    notes = db['notes']
+    thisnote=notes.find({'course':n,'pid':n})
+    noteobj=note(name=thisnote['name'],num=thisnote['pid'])
+    c={}
+    c.update(csrf(request))
+    c['note']=noteobj
+    return render_to_request('course/note.html',c)
