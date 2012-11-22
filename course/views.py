@@ -127,6 +127,7 @@ def newnote(request,pk):
     newobject={
         'name' : "",
         'pid' : nextval,
+        'course'
     }
     notes.insert(newobject)
     return redirect("/course/"+str(pk)+"/note/"+str(nextval)+"/")
