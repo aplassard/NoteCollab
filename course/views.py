@@ -121,7 +121,7 @@ def newnote(request,pk):
     db.authenticate('andrew','password')
     notes = db['notes']
     try:
-        newestnote = notes.find({'course':pk}).sort("pid",pymongo.ASCENDING)[0]
+        newestnote = notes.find({'course':pk}).sort("pid",pymongo.DESCENDING)[0]
         nextval=newestnote["pid"]+1
     except:
         nextval=0
