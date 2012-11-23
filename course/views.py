@@ -103,7 +103,7 @@ def notes(request,pk):
     notelist=[]
     for n in classnotes:
         if n.has_key('name') and n.has_key('pid'):
-            notelist.append(note(name=n['name'],num=n['_id']))
+            notelist.append(note(name=n['name'],num=n['pid']))
     c={}
     c.update(csrf(request))
     c['notes']=notelist
