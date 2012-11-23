@@ -4,6 +4,7 @@ from student.models import student
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
 from django.shortcuts import get_object_or_404, render_to_response, redirect
+import pymongo
 from pymongo import Connection
 
 def index(request):
@@ -120,7 +121,7 @@ def newnote(request,pk):
     db.authenticate('andrew','password')
     notes = db['notes']
     try:
-        newestnote = notes.find({'course':pk}).sort("pid")[0]
+        newestnote = notes.find({'course':pk}).sort("pid",pymongo.ASCENDING)[0]
         nextval=newestnote["pid"]+1
     except:
         nextval=0
