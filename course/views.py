@@ -142,4 +142,6 @@ def noteinfo(request,pk,n):
     c={}
     c.update(csrf(request))
     c['note']=noteobj
+    c['pk']=pk
+    c['n']=n
     return render_to_response('course/note.html',c)

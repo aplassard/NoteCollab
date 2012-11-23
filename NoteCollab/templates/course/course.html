@@ -21,9 +21,9 @@
         {%endfor%}
     </select>
     <br>
-    Description (hold control on windows or command on mac to select multiple):<br>
+    Description:<br>
     <textarea name="description" cols="40" rows="6">{{course.description}}</textarea><br>
-    Students:<br>
+    Students (hold control on windows or command on mac to select multiple):<br>
     <select multiple="multiple" name="students" title="Students">
         {% for s in allstudents %}
             <option value="{{s.id}}" {% if s.id in classstudents %}selected="selected"{% endif %} >{{s.firstname}} {{s.lastname}}</option>

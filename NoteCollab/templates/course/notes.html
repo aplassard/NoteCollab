@@ -6,16 +6,18 @@
         <td>Delete</td>
         </tr>
         {% for note in notes %}
-            <tr>
-                <td>
-                    <a href="/course/{{pk}}/notes/{{note.id}}/">
-                        note.name
-                    </a>
-                </td>
-                <td>
-                    <input type="checkbox" name="note" value="{{ note.id }}" />
-                </td>
-            </tr>
+            {% if note.name != ""%}
+                <tr>
+                    <td>
+                        <a href="/course/{{pk}}/notes/{{note.id}}/">
+                            {{note.name}}
+                        </a>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="note" value="{{ note.id }}" />
+                    </td>
+                </tr>
+            {% endif %}
         {%endfor%}
     </table>
     <input type="submit" value="new note" name="new" />
