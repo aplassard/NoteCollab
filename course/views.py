@@ -153,4 +153,4 @@ def notesubmit(request,pk,n):
     db.authenticate('andrew','password')
     notes = db['notes']
     thisnote=notes.find_and_modify(query={'course':pk,'pid':int(n)},update={'name':request.POST.get('name','')})
-    return render_to_response('course/submitted.html',update(csrf(request)))
+    return render_to_response('course/submitted.html',{}.update(csrf(request)))
