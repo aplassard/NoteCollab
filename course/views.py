@@ -146,3 +146,11 @@ def noteinfo(request,pk,n):
     c['pk']=pk
     c['n']=n
     return render_to_response('course/note.html',c)
+
+def notesubmit(request,pk,n):
+    connection = Connection('ds031087.mongolab.com',31087)
+    db = connection['notecollab']
+    db.authenticate('andrew','password')
+    notes = db['notes']
+    thisnote=notes.find_and_modify(query={'course':pk,'pid':int(n)},update={'name':request.POST.get('name','')})
+    return render_to_response('course/submitted.html',update(csrf(request)))

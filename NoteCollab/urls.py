@@ -26,4 +26,6 @@ urlpatterns = patterns('',
     url(r'^course/(?P<pk>\d+)/notes/$','course.views.notes'),
     url(r'^course/(?P<pk>\d+)/notes/new/$','course.views.newnote'),
     url(r'^course/(?P<pk>\d+)/note/(?P<n>\d+)/$','course.views.noteinfo'),
+    url(r'^course/(?P<pk>\d+)/note/(?P<n>\d+)/submit/$','course.views.notesubmit'),
+
 )
