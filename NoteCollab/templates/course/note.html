@@ -1,4 +1,5 @@
 <form action="/course/{{pk}}/note/{{n}}/submit/" method="post">
+    {% csrf_token %}
     Name: <input type="text" name="name" value="{{note.name}}" ><br>
     <input type="submit" value="Save Info" />
 </form>
