@@ -9,12 +9,12 @@
             {% if note.name != ""%}
                 <tr>
                     <td>
-                        <a href="/course/{{pk}}/note/{{note.pid}}/">
+                        <a href="/course/{{pk}}/note/{{note.num}}/">
                             {{note.name}}
                         </a>
                     </td>
                     <td>
-                        <input type="checkbox" name="note" value="{{ note.id }}" />
+                        <input type="checkbox" name="note" value="{{ note.num }}" />
                     </td>
                 </tr>
             {% endif %}
