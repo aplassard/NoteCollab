@@ -130,6 +130,7 @@ def newnote(request,pk):
         'pid' : nextval,
         'course':pk,
     }
+    newobject['notes']={}
     notes.insert(newobject)
     return redirect("/course/"+str(pk)+"/note/"+str(nextval)+"/")
 
@@ -145,6 +146,7 @@ def noteinfo(request,pk,n):
     c['note']=noteobj
     c['pk']=pk
     c['n']=n
+    c['test']='''Test: <input type="text" name="test"  ><br>'''
     return render_to_response('course/note.html',c)
 
 def notesubmit(request,pk,n):
