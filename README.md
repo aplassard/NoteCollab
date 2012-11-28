@@ -1,4 +1,0 @@
-NoteCollab
-==========
-
-Collaborative Learning Project

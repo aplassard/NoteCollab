@@ -72,11 +72,12 @@
                                 <li><a href="#">About</a></li>
                                 <li><a href="#">Contact</a></li>
                             </ul>
-                            <form class="navbar-form pull-right">
-                                <input class="span2" type="text" placeholder="Email" />
-                                <input class="span2" type="password" placeholder="Password" />
-                                <button type="submit" name="submit" class="btn">Sign In</button>
-                                <button type="submit" name="new" class="btn">Sign Up</button>
+                            <form class="navbar-form pull-right" action="/submit/" method="post">
+                                {% csrf_token %}
+                                <input class="span2" type="text" placeholder="Email" name="username" />
+                                <input class="span2" type="password" placeholder="Password" name="password" />
+                                <input type="submit" name="signin" value="Sign In" class="btn"/>
+                                <input type="submit" name="new" value="Sign Up" class="btn"/>
                             </form>
                         </div>
                     </div>
@@ -112,7 +113,7 @@
                     </div>
                     <div class="span4">
                         <img class="img-circle" src="{% static "img/mouse.png" %}"/>
-                        <h2>Work Towards Student Outcomes</h2>
+                        <h2>Accomplish Learning Outcomes</h2>
                         <p>NoteCollab provides a framework for professors to structure group activities around quantifiable student outcomes and provides analytics to the professor based on successes and failures.</p>
                     </div>
                 </div>

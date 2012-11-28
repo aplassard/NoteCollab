@@ -124,11 +124,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    'student',
-    'professor',
-    'course',
-    'group',
 )
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -160,7 +157,7 @@ LOGGING = {
 }
 
 import socket
-if socket.gethostname().find("-")>0:
+if socket.gethostname().find("-")>0 and socket.gethostname().find("home")<0:
 	import dj_database_url
 	DATABASES['default']=dj_database_url.config()
 
